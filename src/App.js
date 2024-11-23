@@ -1,11 +1,11 @@
 import React from "react";
-import CalendarView from "./pages/Calendar";
+import CalendarWidget from "./pages/CalendarWidget";
 
 function App() {
   return (
     <div>
     
-      <CalendarView />
+      <CalendarWidget />
     </div>
   );
 }

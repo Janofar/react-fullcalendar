@@ -14,7 +14,7 @@ import eventsListData from '../data/calendarfromtoenddate.json';
 const EVENT_LIST_MODAL = 1;
 const EVENT_DETAIL_MODAL = 2;
 
-const CalendarComponent = () => {
+const CalendarWidget = () => {
   const [isEventListModalOpen, setEventListModalOpen] = useState(false);
   const [isEventDetailModalOpen, setEventDetailModalOpen] = useState(false);
   const [clickedEvents, setClickedEvents] = useState([]);
@@ -162,11 +162,8 @@ const CalendarComponent = () => {
               <div className="badge flex-shrink mt-1">{overlappingEvents.length}</div>
             )}
           </div>
-          
-          
           );
         }}
-        
         slotLabelFormat={(args) => formatTime(args.date)}
         eventTimeFormat={(args) => formatTime(args.date)}
       />
@@ -193,4 +190,4 @@ const CalendarComponent = () => {
   );
 };
 
-export default CalendarComponent;
+export default CalendarWidget;

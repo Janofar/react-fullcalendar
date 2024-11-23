@@ -97,13 +97,12 @@
   cursor: pointer;
   font-weight: normal;
   background-color: #f3f4f6;
-  text-align: center;
 }
 
 .fc-daygrid-event .badge {
   display: inline-block;
   padding: 4px 8px;
-  background-color: #ff4500;
+  background-color: #c5b80d;
   color: white;
   border-radius: 20px;
   font-size: 12px;
@@ -135,6 +134,12 @@
 .fc .fc-button-primary:not(:disabled).fc-button-active:focus, .fc .fc-button-primary:not(:disabled):active:focus {
   box-shadow: none !important;
 }
+.fc-timegrid-slot-label {
+  color: #007bff;
+  font-weight: 600;
+  font-size: 14px;
+}
+
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .fc-toolbar-title{
