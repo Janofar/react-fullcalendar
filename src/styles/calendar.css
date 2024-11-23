@@ -140,6 +140,15 @@
   font-size: 14px;
 }
 
+.fc-icon-chevron-right:active,
+.fc-icon-chevron-right:focus,
+.fc-icon-chevron-left:active,
+.fc-icon-chevron-left:focus {
+  border: 1px solid #2170f0;
+  outline: none;
+  border-radius: 2px;
+}
+
 
 @media (min-width: 768px) and (max-width: 1024px) {
   .fc-toolbar-title{
