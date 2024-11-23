@@ -1,0 +1,151 @@
+.fc-button-active {
+  background-color: white !important;
+  border: none !important;
+  border-bottom: 5px solid blue !important;
+}
+
+.fc .fc-button{
+  border-radius: 0px;
+}
+.fc-event {
+  position: relative;
+  border: none !important;
+  border-left: 10px solid #1e90ff !important;
+  background-color: white !important;
+  color: black !important;
+  outline: none;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+}
+
+
+.fc-event .badge {
+  position: absolute;
+  top: -8px;
+  right: -8px;
+  background-color: #c5b80d;
+  color: black;
+  padding: 4px 8px;
+  border-radius: 50%;
+  font-size: 12px;
+  font-weight: bold;
+  display: inline-block;
+}
+
+.fc-event[data-badge]:after {
+  content: attr(data-badge);
+}
+
+
+.fc-v-event .fc-event-main {
+  color: black !important;
+}
+
+.fc-button {
+  border: none;
+  background-color: transparent;
+  color: #333;
+  padding: 10px 15px;
+}
+
+.fc-button-active {
+  border-bottom: 3px solid #1e90ff;
+  background-color: transparent;
+  color: #1e90ff;
+}
+
+
+.fc-toolbar-button {
+  margin: 0 10px;
+}
+
+
+.event-overlap {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+}
+
+.event-overlap-first {
+  z-index: 2;
+  /* Bring the first event to the front */
+}
+
+/* Modal.css */
+
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+
+/* Event styling for month view */
+.fc-daygrid-event {
+  display: block;
+  margin: 5px 0;
+  background: none;
+  border: none;
+  box-shadow: none;
+  color: #333;
+  font-size: 14px;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-weight: normal;
+  background-color: #f3f4f6;
+  text-align: center;
+}
+
+.fc-daygrid-event .badge {
+  display: inline-block;
+  padding: 4px 8px;
+  background-color: #ff4500;
+  color: white;
+  border-radius: 20px;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+.fc-event .event-tag {
+  display: block;
+  margin-top: 5px;
+  padding: 8px 10px;
+  font-size: 12px;
+  background-color: #f3f4f6;
+  border-radius: 20px;
+  color: #333;
+  text-align: center;
+  cursor: pointer;
+}
+
+.fc-timegrid-slot {
+  height: 2.2rem !important;
+  border-bottom: 0 !important;
+}
+.fc-button-active:focus{
+  /* box-shadow: none !important; */
+}
+.fc .fc-button-primary:focus{
+  box-shadow: none !important;
+}
+.fc .fc-button-primary:not(:disabled).fc-button-active:focus, .fc .fc-button-primary:not(:disabled):active:focus {
+  box-shadow: none !important;
+}
+
+@media (min-width: 768px) and (max-width: 1024px) {
+  .fc-toolbar-title{
+    font-size: 1rem !important;
+    font-weight : bold
+  }
+}
+
+@media (min-width: 1025px) and (max-width: 1280px) {
+  .fc-toolbar-title{
+    font-size: 1.75rem !important;
+    font-weight : bold
+  }
+}
