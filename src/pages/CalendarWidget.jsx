@@ -149,13 +149,13 @@ const CalendarWidget = () => {
          
           return (
             <div className="flex flex-col p-1 max-h-full overflow-hidden">
-            <span className="flex-shrink truncate capitalize xl:text-custom-xl lg:text-custom-lg md:text-custom-md">
+            <span className="flex-shrink capitalize xl:text-custom-xl lg:text-custom-lg md:text-custom-md">
               {job_id.jobRequest_Title}
             </span>
-            <span className="flex-shrink truncate xl:text-custom-xl lg:text-custom-lg md:text-custom-md">
+            <span className="flex-shrink xl:text-custom-xl lg:text-custom-lg md:text-custom-md">
               Interviewer : {user_det.handled_by.firstName + ' ' + user_det.handled_by.lastName}
             </span>
-            <span className="flex-shrink truncate xl:text-custom-xl lg:text-custom-lg md:text-custom-md">
+            <span className="flex-shrink xl:text-custom-xl lg:text-custom-lg md:text-custom-md">
               Time : {moment(startStr).format('h:mm A')} - {moment(endStr).format('h:mm A')}
             </span>
             {overlappingEvents.length > 0 && (
