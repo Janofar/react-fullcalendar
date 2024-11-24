@@ -110,7 +110,7 @@ const CalendarWidget = () => {
         }}
         dateClick={handleDateClick}
         eventClick={handleEventClick}
-        editable={true}
+        editable={false}
         dayHeaderContent={(arg) => {
           const view = arg.view;
           if (view.type === 'dayGridMonth') {
@@ -140,29 +140,53 @@ const CalendarWidget = () => {
         dayMaxEventRows={true}
         events={consolidateEvents()}
         selectable={true}
+        slotEventOverlap={false} 
         dayMaxEvents={true}
         height="auto"
         eventClassNames={(arg) => [`custom-event-${arg.event.id}`]}
-        eventContent={(eventInfo,arg) => {
+        eventContent={(eventInfo) => {
           const { job_id,user_det,overlappingEvents} = eventInfo.event._def.extendedProps;
           const {startStr,endStr} = eventInfo.event;
          
           return (
-            <div className="flex flex-col p-1 max-h-full overflow-hidden">
-            <span className="flex-shrink capitalize xl:text-custom-xl lg:text-custom-lg md:text-custom-md">
-              {job_id.jobRequest_Title}
-            </span>
-            <span className="flex-shrink xl:text-custom-xl lg:text-custom-lg md:text-custom-md">
-              Interviewer : {user_det.handled_by.firstName + ' ' + user_det.handled_by.lastName}
-            </span>
-            <span className="flex-shrink xl:text-custom-xl lg:text-custom-lg md:text-custom-md">
-              Time : {moment(startStr).format('h:mm A')} - {moment(endStr).format('h:mm A')}
-            </span>
-            {overlappingEvents.length > 0 && (
-              <div className="badge flex-shrink mt-1">{overlappingEvents.length}</div>
-            )}
-          </div>
+            <div className="flex flex-col max-h-full overflow-hidden">
+              <span className="flex-shrink capitalize xl:text-custom-xl lg:text-custom-lg md:text-custom-md">
+                {job_id.jobRequest_Title}
+              </span>
+              <span className="flex-shrink xl:text-custom-xl lg:text-custom-lg md:text-custom-md">
+                Interviewer : {user_det.handled_by.firstName + ' ' + user_det.handled_by.lastName}
+              </span>
+              <span className="flex-shrink xl:text-custom-xl lg:text-custom-lg md:text-custom-md">
+                Time : {moment(startStr).format('h:mm A')} - {moment(endStr).format('h:mm A')}
+              </span>
+              {overlappingEvents.length > 0 && (
+                <div className="badge flex-shrink mt-1">{overlappingEvents.length}</div>
+              )}
+            </div>
           );
+        }}
+        eventsSet={function(events) {
+         const calendarApi = document.querySelector('.fc-timeGridWeek-view');
+         if (!calendarApi) {
+           return;
+         }
+          events.forEach((event)=>{
+            const overlappingEvents = event._def.extendedProps.overlappingEvents;
+            let startVal,endVal = '';
+            if(overlappingEvents.length > 0 ){
+              startVal = overlappingEvents[0].start;
+              endVal = overlappingEvents[0].end;
+            } else {
+              startVal = event._def.extendedProps.startVal;
+              endVal = event._def.extendedProps.endVal;
+            }
+          
+            const startTime = moment(startVal).format("HH:mm:ss"); 
+            const endTime = moment(startTime, "HH:mm:ss").add(30, 'minutes').format("HH:mm:ss");
+            document.querySelector(`.fc-timegrid-slot[data-time="${startTime}"]`).style.height ='2.8rem';
+            document.querySelector(`.fc-timegrid-slot[data-time="${endTime}"]`).style.height ='2.8rem';
+          })
+         
         }}
         slotLabelFormat={(args) => formatTime(args.date)}
         eventTimeFormat={(args) => formatTime(args.date)}

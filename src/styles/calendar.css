@@ -1,7 +1,8 @@
 .fc-button-active {
   background-color: white !important;
   border: none !important;
-  border-bottom: 5px solid blue !important;
+  border-bottom: 5px solid #1e90ff !important;
+  color: #1e90ff;
 }
 
 .fc .fc-button{
@@ -10,19 +11,23 @@
 .fc-event {
   position: relative;
   border: none !important;
+  padding-left: 5px;
   border-left: 10px solid #1e90ff !important;
   background-color: white !important;
   color: black !important;
   outline: none;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1) !important;
+  cursor: pointer;
 }
 
-
+.fc-event:focus{
+  background-color : #cbe4f2 !important;
+}
 .fc-event .badge {
   position: absolute;
   top: -8px;
   right: -8px;
-  background-color: #c5b80d;
+  background-color: #ffd05a;
   color: black;
   padding: 4px 8px;
   border-radius: 50%;
@@ -47,11 +52,6 @@
   padding: 10px 15px;
 }
 
-.fc-button-active {
-  border-bottom: 3px solid #1e90ff;
-  background-color: transparent;
-  color: #1e90ff;
-}
 
 
 .fc-toolbar-button {
@@ -102,9 +102,9 @@
 .fc-daygrid-event .badge {
   display: inline-block;
   padding: 4px 8px;
-  background-color: #c5b80d;
-  color: white;
-  border-radius: 20px;
+  background-color: #ffd05a;
+  color: black;
+  border-radius: 50%;
   font-size: 12px;
   margin-top: 5px;
 }
@@ -122,7 +122,7 @@
 }
 
 .fc-timegrid-slot {
-  /*height: 2.2rem !important; */
+  height: 2.2rem;
   border-bottom: 0 !important;
 }
 .fc-button-active:focus{
@@ -154,6 +154,10 @@
   .fc-toolbar-title{
     font-size: 1rem !important;
     font-weight : bold
+  }
+  .fc-timegrid-slot {
+    min-height: 2.4rem !important;
+    border-bottom: 0 !important;
   }
 }
 

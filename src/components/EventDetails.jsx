@@ -28,7 +28,7 @@ export const EventDetails = ({ event }) => {
                     <p className="text-gray-700  leading-loose">
                         <span >Interview Time : {moment(startVal).format("mm") === "00"
                             ? moment(startVal).format("h A")
-                            : moment(startVal).format("h:mm A")} -
+                            : moment(startVal).format("h:mm A")} -&nbsp;
                             {moment(endVal).format("mm") === "00"
                                 ? moment(endVal).format("h A")
                                 : moment(endVal).format("h:mm A")}
