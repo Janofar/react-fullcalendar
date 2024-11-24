@@ -26,8 +26,10 @@ Follow these steps to set up the project locally:
    ```bash
    git clone https://github.com/Janofar/react-fullcalendar.git
 2. Install the dependencies:
-   -npm install
-3. Start the development server:
-   -npm start
+   ```bash
+   npm install
+4. Start the development server:
+   ```bash
+   npm start
 The application will run locally at http://localhost:3000.
 
