@@ -4,7 +4,6 @@ This project is a calendar application built using React, [@fullcalendar/react](
 
 ## Features
 
-- **Event Management**: Add, update, and delete events.
 - **Interactive Views**: Switch between different views (month, week, day, agenda).
 - **Responsive Design**: Fully responsive UI with Tailwind CSS.
 - **Customizable**: Easily extend or style the calendar using Tailwind utilities.
