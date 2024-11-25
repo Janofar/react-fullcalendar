@@ -34,7 +34,7 @@ const Modal = ({
                 {showEdgeCloseButton && (
                     <div className="relative" style={{ backgroundColor: 'transparent' }}>
                         <button
-                            className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 flex items-center justify-center bg-blue-500 text-white rounded-full w-6 h-6"
+                            className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 flex items-center justify-center bg-blue-500 text-white rounded-full w-6 h-6 align-btn"
                             onClick={onClose}
                         >
                             <span className="text-lg font-bold mb-1" style={{ lineHeight: '1' }}>&times;</span>

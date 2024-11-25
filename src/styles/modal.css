@@ -60,3 +60,9 @@
   pointer-events: none; 
   transition: filter 0.3s ease;
 }
+
+@media (min-width: 2560px) {
+  .align-btn{
+    align-items: initial !important;
+  }
+}
