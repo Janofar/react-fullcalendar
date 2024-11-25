@@ -4,7 +4,6 @@ import { Eye, Download } from 'lucide-react';
 import moment from 'moment';
 
 export const EventDetails = ({ event }) => {
-    console.log(event)
     const { job_id, startVal, endVal, user_det,link } = event;
     const joinMeet =()=>{
         window.open(link,'_blank')
