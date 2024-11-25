@@ -166,10 +166,12 @@ const CalendarWidget = () => {
           );
         }}
         eventsSet={function(events) {
-         const calendarApi = document.querySelector('.fc-timeGridWeek-view');
-         if (!calendarApi) {
-           return;
-         }
+          const weekViewApi = document.querySelector('.fc-timeGridWeek-view');
+          const dayViewApi = document.querySelector('.fc-dayGridDay-view');
+          
+          if (!weekViewApi && !dayViewApi) {
+            return;
+          }
           events.forEach((event)=>{
             const overlappingEvents = event._def.extendedProps.overlappingEvents;
             let startVal,endVal = '';
