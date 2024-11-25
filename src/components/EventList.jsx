@@ -2,7 +2,7 @@ import React from "react";
 import moment from "moment";
 
 const EventList = ({ event }) => {
-  const { summary, job_id, start, end, user_det } = event;
+  const { summary, job_id, user_det } = event;
   return (
     <div className="bg-white shadow-md rounded-lg overflow-hidden">
       <div className="pl-4 pt-4 pb-0 pr-4">

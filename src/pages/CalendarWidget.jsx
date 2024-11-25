@@ -174,13 +174,11 @@ const CalendarWidget = () => {
           }
           events.forEach((event)=>{
             const overlappingEvents = event._def.extendedProps.overlappingEvents;
-            let startVal,endVal = '';
+            let startVal = '';
             if(overlappingEvents.length > 0 ){
               startVal = overlappingEvents[0].start;
-              endVal = overlappingEvents[0].end;
             } else {
               startVal = event._def.extendedProps.startVal;
-              endVal = event._def.extendedProps.endVal;
             }
           
             const startTime = moment(startVal).format("HH:mm:ss"); 
