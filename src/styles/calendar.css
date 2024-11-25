@@ -126,13 +126,13 @@
   height: 2.2rem;
   border-bottom: 0 !important;
 }
-.fc-button-active:focus{
-  /* box-shadow: none !important; */
-}
-.fc .fc-button-primary:focus{
-  box-shadow: none !important;
-}
-.fc .fc-button-primary:not(:disabled).fc-button-active:focus, .fc .fc-button-primary:not(:disabled):active:focus {
+.fc .fc-prev-button:focus,
+.fc .fc-next-button:focus ,
+.fc-dayGridMonth-button:focus,
+.fc-timeGridWeek-button:focus,
+.fc-timeGridDay-button:focus,
+.fc-year-button:focus
+{
   box-shadow: none !important;
 }
 .fc-timegrid-slot-label {
@@ -141,10 +141,9 @@
   font-size: 14px;
 }
 
-.fc-icon-chevron-right:active,
-.fc-icon-chevron-right:focus,
-.fc-icon-chevron-left:active,
-.fc-icon-chevron-left:focus {
+.fc-icon-chevron-right,
+.fc-icon-chevron-left
+ {
   border: 1px solid #2170f0;
   outline: none;
   border-radius: 2px;
@@ -167,4 +166,19 @@
     font-size: 1.75rem !important;
     font-weight : bold
   }
+}
+
+.fc-todayDayButton-button {
+  width: 40px;
+  height: 24px;
+  text-align: center;
+  padding: 0 !important;
+  font-weight: bold; 
+  color: #007bff !important;
+  box-shadow: 0 0 10px 1px #cccfd3 !important;
+  display: flex ;
+  justify-content: center;
+  align-items: center;
+  line-height: 1;
+  font-size: 14px;
 }

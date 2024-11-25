@@ -76,6 +76,7 @@ const CalendarWidget = () => {
   const formatTime = (time) => {
     return moment(time).format('h A').replace('AM', 'A.M').replace('PM', 'P.M');
   };
+  const calendarRef = React.useRef(null);
   return (
     <div>
       <div  className="flex justify-end items-end">
@@ -88,11 +89,23 @@ const CalendarWidget = () => {
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin, listPlugin]}
         initialView="timeGridWeek"
         allDaySlot={false}
+        ref={calendarRef}
         headerToolbar={{
-          left: `prev,next today`,
+          left: `prev,next todayDayButton`,
           center: 'title',
           right: 'dayGridMonth,timeGridWeek,timeGridDay,year',
         }}
+        customButtons={{
+          todayDayButton: {
+            text: moment().date(),
+            click: () => {
+              const calendarApi = calendarRef.current.getApi();
+              calendarApi.changeView('timeGridWeek');
+              calendarApi.today();
+            },
+          },
+        }}
+        firstDay={1}
         views={{
           year: {
             type: 'dayGrid',
@@ -127,8 +140,8 @@ const CalendarWidget = () => {
 
           return (
             <>
-              <div>{`${day} ${month}`}</div>
-              <div>{weekday}</div>
+              <div className='font-semibold'>{`${day} ${month}`}</div>
+              <div className='font-normal'>{weekday}</div>
             </>
           );
         }}
