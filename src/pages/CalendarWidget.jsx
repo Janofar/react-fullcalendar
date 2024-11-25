@@ -19,6 +19,8 @@ const CalendarWidget = () => {
   const [isEventDetailModalOpen, setEventDetailModalOpen] = useState(false);
   const [clickedEvents, setClickedEvents] = useState([]);
   const [selectedEvent,setSelectedEvent] = useState({});
+  const [showCustomButton, setShowCustomButton] = useState(true);
+  const calendarRef = React.useRef(null);
 
   const consolidateEvents = () => {
     const groupedEvents = {};
@@ -76,7 +78,14 @@ const CalendarWidget = () => {
   const formatTime = (time) => {
     return moment(time).format('h A').replace('AM', 'A.M').replace('PM', 'P.M');
   };
-  const calendarRef = React.useRef(null);
+  const handleDatesSet = (arg) => {
+    if (arg.view.type === 'timeGridWeek' || arg.view.type === 'timeGridDay') {
+      setShowCustomButton(true);
+    } else {
+      setShowCustomButton(false);
+    }
+  };
+
   return (
     <div>
       <div  className="flex justify-end items-end">
@@ -91,17 +100,21 @@ const CalendarWidget = () => {
         allDaySlot={false}
         ref={calendarRef}
         headerToolbar={{
-          left: `prev,next todayDayButton`,
+          left: `prev,next ${showCustomButton ? 'todayDayButton' : ''}`,
           center: 'title',
-          right: 'dayGridMonth,timeGridWeek,timeGridDay,year',
+          right: 'timeGridDay,timeGridWeek,dayGridMonth,year',
         }}
         customButtons={{
           todayDayButton: {
             text: moment().date(),
             click: () => {
               const calendarApi = calendarRef.current.getApi();
-              calendarApi.changeView('timeGridWeek');
-              calendarApi.today();
+              const currentView = calendarApi.view.type;
+              if (currentView === 'timeGridDay') {
+                calendarApi.today();
+              } else {
+                calendarApi.today();
+              }
             },
           },
         }}
@@ -121,6 +134,7 @@ const CalendarWidget = () => {
             },
           },
         }}
+        datesSet={handleDatesSet}
         dateClick={handleDateClick}
         eventClick={handleEventClick}
         editable={false}
