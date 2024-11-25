@@ -161,7 +161,7 @@ const CalendarWidget = () => {
         }}
         
         slotLabelInterval="01:00:00" 
-        // slotMinTime='10:00:00'
+        slotMinTime='10:00:00'
         // slotMaxTime="18:00:00"
         // contentHeight={100}
         dayMaxEventRows={true}
@@ -191,29 +191,6 @@ const CalendarWidget = () => {
               )}
             </div>
           );
-        }}
-        eventsSet={function(events) {
-          const weekViewApi = document.querySelector('.fc-timeGridWeek-view');
-          const dayViewApi = document.querySelector('.fc-dayGridDay-view');
-          
-          if (!weekViewApi && !dayViewApi) {
-            return;
-          }
-          events.forEach((event)=>{
-            const overlappingEvents = event._def.extendedProps.overlappingEvents;
-            let startVal = '';
-            if(overlappingEvents.length > 0 ){
-              startVal = overlappingEvents[0].start;
-            } else {
-              startVal = event._def.extendedProps.startVal;
-            }
-          
-            const startTime = moment(startVal).format("HH:mm:ss"); 
-            const endTime = moment(startTime, "HH:mm:ss").add(30, 'minutes').format("HH:mm:ss");
-            document.querySelector(`.fc-timegrid-slot[data-time="${startTime}"]`).style.height ='2.8rem';
-            document.querySelector(`.fc-timegrid-slot[data-time="${endTime}"]`).style.height ='2.8rem';
-          })
-         
         }}
         slotLabelFormat={(args) => formatTime(args.date)}
         eventTimeFormat={(args) => formatTime(args.date)}

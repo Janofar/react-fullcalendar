@@ -123,7 +123,7 @@
 }
 
 .fc-timegrid-slot {
-  height: 2.2rem;
+  height: 2.2rem !important;
   border-bottom: 0 !important;
 }
 .fc .fc-prev-button:focus,
@@ -154,10 +154,6 @@
   .fc-toolbar-title{
     font-size: 1rem !important;
     font-weight : bold
-  }
-  .fc-timegrid-slot {
-    min-height: 2.4rem !important;
-    border-bottom: 0 !important;
   }
 }
 
