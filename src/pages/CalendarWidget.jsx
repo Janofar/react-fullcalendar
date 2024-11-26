@@ -5,7 +5,7 @@ import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
 import listPlugin from '@fullcalendar/list';
 import Modal from '../components/common/Modal';
-import EventCard from '../components/EventList';
+import EventList from '../components/EventList';
 import { EventDetails } from '../components/EventDetails';
 import '../styles/calendar.css';
 import { Plus } from 'lucide-react';
@@ -74,6 +74,12 @@ const CalendarWidget = () => {
   const handleDateClick = (arg) => {
     alert(`Date clicked: ${arg.dateStr}`);
   };
+
+  const handleEventDetailClick = (idx)=>{
+    closeEventListModal();
+    setSelectedEvent(eventsListData[idx])
+    setEventDetailModalOpen(true)
+  }
 
   const formatTime = (time) => {
     return moment(time).format('h A').replace('AM', 'A.M').replace('PM', 'P.M');
@@ -202,8 +208,8 @@ const CalendarWidget = () => {
         modalHeader='Meetings'
         modalType = {EVENT_LIST_MODAL}
       >
-        {clickedEvents.map((event) => (
-          <EventCard event={event} key={event.id} />
+        {clickedEvents.map((event,eventIdx) => (
+          <EventList event={event} eventIdx={eventIdx} key={event.id} handleEventDetailClick={handleEventDetailClick}/>
         ))}
       </Modal>
       <Modal

@@ -4,10 +4,7 @@ import { Eye, Download } from 'lucide-react';
 import moment from 'moment';
 
 export const EventDetails = ({ event }) => {
-    const { job_id, startVal, endVal, user_det,link } = event;
-    const joinMeet =()=>{
-        window.open(link,'_blank')
-    }
+    const { job_id, startVal, endVal, user_det } = event;
     return (
         <div className="p-4 border border-gray-300 shadow-md">
             <div className="flex flex-wrap md:flex-nowrap">
@@ -59,7 +56,7 @@ export const EventDetails = ({ event }) => {
                         className="w-40 h-30 p-4 mb-8 border border-gray-300"
                     />
 
-                    <button onClick={joinMeet} className="bg-blue-500 text-white py-2 px-6 rounded-lg shadow hover:bg-blue-600">
+                    <button className="bg-blue-500 text-white py-2 px-6 rounded-lg shadow hover:bg-blue-600">
                         JOIN
                     </button>
                 </div>

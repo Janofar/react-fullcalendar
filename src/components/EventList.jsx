@@ -1,13 +1,10 @@
 import React from "react";
 import moment from "moment";
 
-const EventList = ({ event }) => {
-  const { summary, job_id, user_det,link } = event;
-  const joinMeeting = ()=>{
-    window.open(link,'_blank')
-  }
+const EventList = ({ event ,handleEventDetailClick, eventIdx}) => {
+  const { summary, job_id, user_det } = event;
   return (
-    <div onClick={joinMeeting} className="bg-white shadow-md rounded-lg cursor-pointer overflow-hidden">
+    <div onClick={()=>handleEventDetailClick(eventIdx)} className="bg-white shadow-md rounded-lg cursor-pointer overflow-hidden">
       <div className="pl-4 pt-4 pb-0 pr-4">
         <h3 className="text-xl font-semibold capitalize text-gray-700">{job_id.jobRequest_Role}</h3>
       </div>
